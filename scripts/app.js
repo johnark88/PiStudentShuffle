@@ -63,7 +63,7 @@ $(document).ready(function(){
       //get info for paragraph
       infoPara.textContent = students[count].info;
 
-
+      //create count display ie 1/17 
       var countDisplay = document.createElement('p');
       var countPlus = count+1;
       countDisplay.textContent = countPlus + '/' + students.length;
