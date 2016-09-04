@@ -10,18 +10,26 @@
     <title>Pi Student Shuffle</title>
   </head>
   <body>
-    <h1> Pi Student Shuffle </h1>
+    <div class="jumbotron text-center">
+      <h1> Pi Student Shuffle </h1>
+    </div>
 
-
-      <div id="outputDiv">
-      Incoming Data...
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div id="outputDiv">
+            Incoming Data...
+          </div>
+          <div>
+            <button id="prevButton" class="btn btn-primary"> Previous </button>
+            <button id="nextButton" class="btn btn-primary"> Next </button>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class='container-fluid'>
-        <button id="prevButton" class="btn btn-primary"> Previous </button>
-        <button id="nextButton" class="btn btn-primary"> Next </button>
-      </div>
-      
+
+
       <!-- <div id="buttonHolder"></div> -->
   </body>
 </html>
