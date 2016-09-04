@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   //URL to retrive json data from
   var studentsURL = 'http://devjana.net/pi/pi_students.json';
-  // console.log(studentsURL);
+  console.log(studentsURL);
 
   //ajax call
   $.ajax({
@@ -20,13 +20,15 @@ $(document).ready(function(){
       for (var i = 0; i < data.students.length; i++) {
         //push to global array
         students.push(data.students[i]);
-        showStudents();
-      }
+        //call showStudents function
+      }//end for loop
+      showStudents();
     }//end success
   });//end ajax call
+  });//end document ready
 
   var showStudents = function(){
-    // console.log('showStudents, ' , students);
+    console.log('showStudents, ' , students);
     //clear the output div
     var outputDiv = $('#outputDiv');
     outputDiv.empty();
@@ -41,10 +43,15 @@ $(document).ready(function(){
       //get info for paragraph
       infoPara.textContent = students[i].info;
 
+      //create buttons
+      var nextButton = document.createElement('button');
+      nextButton.textContent = 'Next';
+
+      var prevButton = document.createElement('button');
+      prevButton.textContent = 'Previous';
+
       //append to the DOM for display
       outputDiv.append(nameHeader);
       outputDiv.append(infoPara);
     }//end for loop
-  };
-
-});//end document ready
+  };//end show students function
