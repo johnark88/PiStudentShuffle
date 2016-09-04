@@ -1,6 +1,6 @@
 console.log('Yes app.js is sourced');
 // global variables
-var students = [];
+var students;
 var count = 0;
 
 
@@ -17,41 +17,54 @@ $(document).ready(function(){
     dataType: 'JSON',
     success: function(data) {
       console.log('great success = ', data.students);
-      for (var i = 0; i < data.students.length; i++) {
-        //push to global array
-        students.push(data.students[i]);
+        //send data to global variable
+        students = data.students;
         //call showStudents function
-      }//end for loop
-      showStudents();
+        showStudents();
     }//end success
   });//end ajax call
-  });//end document ready
+
+  //prevButton on click 
+  $('#prevButton').click(function (){
+    console.log('prevButton');
+    //index less than 0 go to last record
+    count--;
+    if (count < 0) {
+      count = students.length -1;
+    }
+    //call showStudents function
+    showStudents();
+  });
+
+  //nextButton on click
+  $('#nextButton').click(function (){
+    console.log('nextButton');
+    //if index greater than or equal to got to next record
+    count++;
+    if (count >= students.length) {
+      count = 0;
+    }
+    //call showStudents function
+    showStudents();
+  });
 
   var showStudents = function(){
-    console.log('showStudents, ' , students);
+    // console.log('showStudents, ' , students);
     //clear the output div
     var outputDiv = $('#outputDiv');
     outputDiv.empty();
-    //loop through the array of objects and display on DOM
-    for (var i = 0; i < students.length; i++) {
+
       //create header for student name
       var nameHeader = document.createElement('h2');
       //get name for header
-      nameHeader.textContent = students[i].first_name + ' ' + students[i].last_name;
+      nameHeader.textContent = students[count].first_name + ' ' + students[count].last_name;
       //create new paragraph element for student info
       var infoPara = document.createElement('p');
       //get info for paragraph
-      infoPara.textContent = students[i].info;
-
-      //create buttons
-      var nextButton = document.createElement('button');
-      nextButton.textContent = 'Next';
-
-      var prevButton = document.createElement('button');
-      prevButton.textContent = 'Previous';
+      infoPara.textContent = students[count].info;
 
       //append to the DOM for display
       outputDiv.append(nameHeader);
       outputDiv.append(infoPara);
-    }//end for loop
   };//end show students function
+});//end document ready
