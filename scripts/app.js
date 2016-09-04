@@ -24,7 +24,7 @@ $(document).ready(function(){
     }//end success
   });//end ajax call
 
-  //prevButton on click 
+  //prevButton on click
   $('#prevButton').click(function (){
     console.log('prevButton');
     //index less than 0 go to last record
@@ -63,8 +63,14 @@ $(document).ready(function(){
       //get info for paragraph
       infoPara.textContent = students[count].info;
 
+
+      var countDisplay = document.createElement('p');
+      var countPlus = count+1;
+      countDisplay.textContent = countPlus + '/' + students.length;
+
       //append to the DOM for display
       outputDiv.append(nameHeader);
       outputDiv.append(infoPara);
+      outputDiv.append(countDisplay);
   };//end show students function
 });//end document ready
