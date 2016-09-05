@@ -20,6 +20,7 @@ $(document).ready(function(){
         //send data to global variable
         students = data.students;
         //call showStudents function
+        allStudents();
         showStudents();
     }//end success
   });//end ajax call
@@ -32,7 +33,9 @@ $(document).ready(function(){
     if (count < 0) {
       count = students.length -1;
     }
+
     //call showStudents function
+
     showStudents();
   });
 
@@ -44,7 +47,9 @@ $(document).ready(function(){
     if (count >= students.length) {
       count = 0;
     }
+
     //call showStudents function
+
     showStudents();
   });
 
@@ -63,7 +68,7 @@ $(document).ready(function(){
       //get info for paragraph
       infoPara.textContent = students[count].info;
 
-      //create count display ie 1/17 
+      //create count display ie 1/17
       var countDisplay = document.createElement('p');
       var countPlus = count+1;
       countDisplay.textContent = countPlus + '/' + students.length;
@@ -72,5 +77,24 @@ $(document).ready(function(){
       outputDiv.append(nameHeader);
       outputDiv.append(infoPara);
       outputDiv.append(countDisplay);
+
+
   };//end show students function
-});//end document ready
+  });//end document ready
+  var allStudents = function () {
+      console.log('in all students ');
+    for (var i = 0; i < students.length; i++) {
+      $('.studentBtn').append("<button >" + students[i].first_name + ' ' + students[i].last_name + "</button>");
+  }
+  
+  };
+
+
+
+
+  // $('#nextButton').on('click', function (){
+  //   console.log('in studentButtons');
+  //   $('#studentBtn').empty();
+  //   $('#studentBtn').append("<button id='studentButtons' > " + students[count].first_name + ' ' + students[count].last_name + "</button>");
+  //
+  // });
