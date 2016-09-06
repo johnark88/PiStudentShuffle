@@ -57,9 +57,12 @@ $(document).ready(function(){
 });//end document ready
 
 
-  var showStudents = function(){
+  var showStudents = function(index){
     // console.log('showStudents, ' , students);
     //clear the output div
+    if (index !== undefined ) {
+      count = index;
+    }
     var outputDiv = $('#outputDiv');
     outputDiv.empty();
 
@@ -94,12 +97,12 @@ $(document).ready(function(){
   };//end allstudents function
 
   // ////////////\clock function - won't change currently displayed name.
-  // var  autoSlide = setInterval(function(){
-  //   console.log('in autoSlide' , clock);
-  //   clock ++;
-  //   if (clock === 10) {
-  //     clock = 0;
-  //     showStudents(i);
-  //   }
-  //
-  // },900);
+  var  autoSlide = setInterval(function(){
+    console.log('in autoSlide' , clock);
+    clock ++;
+    if (clock === 10) {
+      clock = 0;
+      showStudents(count);
+    }
+
+  },1000);
