@@ -33,11 +33,9 @@ $(document).ready(function(){
     if (count < 0) {
       count = students.length -1;
     }
-
     //call showStudents function
-
     showStudents();
-  });
+  });//prevButton click
 
   //nextButton on click
   $('#nextButton').click(function (){
@@ -47,12 +45,11 @@ $(document).ready(function(){
     if (count >= students.length) {
       count = 0;
     }
-
     //call showStudents function
-
     showStudents();
-  });
+  });//end nextButton click
 
+  });//end document ready
   var showStudents = function(){
     // console.log('showStudents, ' , students);
     //clear the output div
@@ -80,21 +77,9 @@ $(document).ready(function(){
 
 
   };//end show students function
-  });//end document ready
   var allStudents = function () {
-      console.log('in all students ');
+    console.log('in all students ');
     for (var i = 0; i < students.length; i++) {
-      $('.studentBtn').append("<button >" + students[i].first_name + ' ' + students[i].last_name + "</button>");
-  }
-  
+      $('.studentBtn').append("<button onClick=showStudents()>" + students[i].first_name + ' ' + students[i].last_name + "</button>");
+    }
   };
-
-
-
-
-  // $('#nextButton').on('click', function (){
-  //   console.log('in studentButtons');
-  //   $('#studentBtn').empty();
-  //   $('#studentBtn').append("<button id='studentButtons' > " + students[count].first_name + ' ' + students[count].last_name + "</button>");
-  //
-  // });
