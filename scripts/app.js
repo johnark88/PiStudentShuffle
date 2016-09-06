@@ -25,8 +25,10 @@ $(document).ready(function(){
     }//end success
   });//end ajax call
 
-  //prevButton on click
+    //prevButton on click
   $('#prevButton').click(function (){
+    var outputDiv = $('#outputDiv');
+
     console.log('prevButton');
     //index less than 0 go to last record
     count--;
@@ -36,6 +38,7 @@ $(document).ready(function(){
     //call showStudents function
     showStudents();
   });//prevButton click
+
 
   //nextButton on click
   $('#nextButton').click(function (){
@@ -48,8 +51,9 @@ $(document).ready(function(){
     //call showStudents function
     showStudents();
   });//end nextButton click
+});//end document ready
 
-  });//end document ready
+
   var showStudents = function(){
     // console.log('showStudents, ' , students);
     //clear the output div
@@ -77,9 +81,11 @@ $(document).ready(function(){
 
 
   };//end show students function
+
+  //display all students as buttons
   var allStudents = function () {
     console.log('in all students ');
     for (var i = 0; i < students.length; i++) {
-      $('.studentBtn').append("<button onClick=showStudents()>" + students[i].first_name + ' ' + students[i].last_name + "</button>");
+      $('.studentBtn').append("<button onClick='showStudents( " + i + ")'>" + students[i].first_name + ' ' + students[i].last_name + "</button>");
     }
   };
