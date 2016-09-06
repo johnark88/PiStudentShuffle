@@ -2,6 +2,7 @@ console.log('Yes app.js is sourced');
 // global variables
 var students;
 var count = 0;
+var clock = 0;
 
 
 $(document).ready(function(){
@@ -27,6 +28,7 @@ $(document).ready(function(){
 
     //prevButton on click
   $('#prevButton').click(function (){
+    clock = 0;
     var outputDiv = $('#outputDiv');
 
     console.log('prevButton');
@@ -42,6 +44,7 @@ $(document).ready(function(){
 
   //nextButton on click
   $('#nextButton').click(function (){
+    clock = 0;
     console.log('nextButton');
     //if index greater than or equal to got to next record
     count++;
@@ -78,13 +81,25 @@ $(document).ready(function(){
       outputDiv.append(nameHeader);
       outputDiv.append(infoPara);
       outputDiv.append(countDisplay);
+
   };//end show students function
 
-
-  //display all students as buttons
+  ///////////\display all students as buttons -- buttons don't click
   var allStudents = function () {
-    console.log('in all students ');
+    console.log('in all students ', students);
+    //loop thru students and append each to the dom as clickable buttons
     for (var i = 0; i < students.length; i++) {
-      $('.studentBtn').append("<button onClick='showStudents( " + i + ")'>" + students[i].first_name + ' ' + students[i].last_name + "</button>");
-    }
-  };
+      $('.studentBtn').append("<button onClick='showStudents( " + i + " )'>" + students[i].first_name + ' ' + students[i].last_name + "</button>");
+    }//end for
+  };//end allstudents function
+
+  // ////////////\clock function - won't change currently displayed name.
+  // var  autoSlide = setInterval(function(){
+  //   console.log('in autoSlide' , clock);
+  //   clock ++;
+  //   if (clock === 10) {
+  //     clock = 0;
+  //     showStudents(i);
+  //   }
+  //
+  // },900);
