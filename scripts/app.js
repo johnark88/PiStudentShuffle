@@ -34,7 +34,7 @@ $(document).ready(function(){
     count--;
     if (count < 0) {
       count = students.length -1;
-    }
+    }//end if
     //call showStudents function
     showStudents();
   });//prevButton click
@@ -47,7 +47,7 @@ $(document).ready(function(){
     count++;
     if (count >= students.length) {
       count = 0;
-    }
+    }//end if
     //call showStudents function
     showStudents();
   });//end nextButton click
@@ -78,9 +78,8 @@ $(document).ready(function(){
       outputDiv.append(nameHeader);
       outputDiv.append(infoPara);
       outputDiv.append(countDisplay);
-
-
   };//end show students function
+
 
   //display all students as buttons
   var allStudents = function () {
