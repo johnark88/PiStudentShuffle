@@ -29,8 +29,6 @@ $(document).ready(function(){
     //prevButton on click
   $('#prevButton').click(function (){
     clock = 0;
-    var outputDiv = $('#outputDiv');
-
     console.log('prevButton');
     //index less than 0 go to last record
     count--;
@@ -85,9 +83,15 @@ $(document).ready(function(){
       outputDiv.append(infoPara);
       outputDiv.append(countDisplay);
 
-  };//end show students function
+  //     $( "#outputDiv" ).fadeOut( "slow", function() {
+  //       // Animation complete.
+  //       outputDiv.append(nameHeader);
+  //       outputDiv.append(infoPara)();
+  //       outputDiv.fadeIn();
+  // });
+};//end show students function
 
-  ///////////\display all students as buttons -- buttons don't click
+  //create and append button for each student
   var allStudents = function () {
     console.log('in all students ', students);
     //loop thru students and append each to the dom as clickable buttons
@@ -97,12 +101,12 @@ $(document).ready(function(){
   };//end allstudents function
 
   // ////////////\clock function - won't change currently displayed name.
-  var  autoSlide = setInterval(function(){
-    console.log('in autoSlide' , clock);
-    clock ++;
-    if (clock === 10) {
-      clock = 0;
-      showStudents(count);
-    }
-
-  },1000);
+  // var  autoSlide = setInterval(function(){
+  //   console.log('in autoSlide' , clock);
+  //   clock ++;
+  //   if (clock === 10) {
+  //     clock = 0;
+  //     showStudents();
+  //   }
+  //
+  // },1000);
